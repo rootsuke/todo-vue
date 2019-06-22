@@ -30,6 +30,12 @@ module VueRails
     # Don't generate system test files.
     config.generators.system_tests = nil
 
+    # Don't generate unnecessary files.
+    config.generators do |g|
+      g.javascripts false
+      g.stylesheets false
+    end
+
     # rspec
     config.generators do |g|
       g.test_framework :rspec,
