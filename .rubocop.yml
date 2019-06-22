@@ -1,0 +1,30 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+Rails:
+  Enabled: true
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'bin/*'
+    - 'node_modules/**/*'
+    - 'vendor/bundle/**/*'
+
+# １行に150文字まで許可
+Metrics/LineLength:
+  Max: 150
+
+# キーワード引数以外も使用可
+Airbnb/OptArgParameters:
+  Enabled: false
+
+# private、protected宣言後のインデントを1段深くする
+Layout/IndentationConsistency:
+  Enabled: true
+  EnforcedStyle: rails
+
+# do endブロックよりも見やすいため
+Style/BlockDelimiters:
+  Enabled: false
