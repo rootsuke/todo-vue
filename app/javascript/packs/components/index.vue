@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <!-- new task form -->
     <div class="row">
       <div class="col s10 m11">
@@ -29,8 +29,8 @@
       <ul class="collection">
         <li v-for="task in tasks" v-if="task.done"v-bind:id="'row_task_' + task.id" class="collection-item">
           <label v-bind:for="'task_' + task.id">
-            <input type="checkbox" v-bind:id="'task_' + task.id" />
-            <span>{{ task.name }}</span>
+            <input type="checkbox" checked="checked" v-bind:id="'task_' + task.id" />
+            <span class="line-through">{{ task.name }}</span>
           </label>
         </li>
       </ul>
@@ -89,7 +89,7 @@
         el.classList.add('display_none');
         // add to finished task list
         el_clone.getElementsByTagName('input')[0].checked = 'checked';
-        el_clone.getElementsByTagName('label')[0].classList.add('line-through');
+        el_clone.getElementsByTagName('span')[0].classList.add('line-through');
         el_clone.getElementsByTagName('label')[0].classList.remove('word-color-black');
         var li = document.querySelector('#finished-tasks > ul > li:first-child');
         document.querySelector('#finished-tasks > ul').insertBefore(el_clone, li);
@@ -101,6 +101,9 @@
 <style scoped>
   [v-cloak] {
     display: none;
+  }
+  .main {
+    margin-top: 20px;
   }
   .display_none {
     display:none;
